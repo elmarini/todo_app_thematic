@@ -1,0 +1,22 @@
+[
+    {
+      "label": "Apples",
+      "completed": false
+    },
+    {
+      "label": "Spinach",
+      "completed": false
+    },
+    {
+      "label": "Bananas",
+      "completed": false
+    },
+    {
+      "label": "Berries",
+      "completed": false
+    },
+    {
+      "label": "Kale",
+      "completed": false
+    }
+  ]
