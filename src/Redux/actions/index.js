@@ -3,7 +3,7 @@ import Types from '../types/'
 export const setFilter = (evt) => {
   return ({
     type: Types.setFilter,
-    filter: evt.target.value
+    value: evt.target.value
   })
 }
 
@@ -14,10 +14,17 @@ export const setFormValue = (evt) => {
   })
 }
 
-export const addItem = (label) => {
+export const setSortMethod = (id) => {
+  return ({
+    type: Types.setSortMethod,
+    id
+  })
+}
+
+export const addItem = (newItem) => {
   return ({
     type: Types.addItem,
-    label
+    newItem
   })
 }
 

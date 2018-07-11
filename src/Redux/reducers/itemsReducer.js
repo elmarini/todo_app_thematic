@@ -1,23 +1,23 @@
 import Types from '../types/'
-import { fromJS } from 'immutable'
-import initialValues from '../../data.json'
+import Immutable, { fromJS } from 'immutable'
+import data from '../../data.json'
 
+const initialState = fromJS(data)
 
-//const initialValues = fromJS(data)
-
-const itemsReducer = (state = initialValues, action) => {
+const itemsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case Types.addItem :
-      return [...state, { label: action.label, completed: false }]
+    case Types.addItem:
+      return state.push(Immutable.Map({
+        label: action.newItem.get('label'),
+        completed: false,
+        date: Date.now()
+      }))
     case Types.toggleItem:
-      const copiedArray = state.slice(0)
-      copiedArray[action.index].completed = !copiedArray[action.index].completed
-      return copiedArray;
+      return state.update(action.index, (item) => {
+        return item.set('completed', !item.completed)
+      })
     case Types.removeItem:
-      const beforeRemoved = state.slice(0, action.index)
-      const afterRemoved = state.slice(action.index + 1)
-      console.log('before', beforeRemoved, 'after', afterRemoved)
-      return [...beforeRemoved, ...afterRemoved]
+      return state.remove(action.index)
     default:
       return state;
   }

@@ -2,16 +2,16 @@ import Types from '../types/'
 import Immutable from 'immutable';
 
 const initialState = Immutable.Map({
-  terms: ''
+  id: 0
 })
 
-const filterReducer = (state = initialState, action) => {
+const sortReducer = (state = initialState, action) => {
   switch (action.type) {
-    case Types.setFilter:
-      return state.set('terms', action.value)
+    case Types.setSortMethod:
+      return state.set('id', action.id)
     default:
       return state;
   }
 }
 
-export default filterReducer;
+export default sortReducer;

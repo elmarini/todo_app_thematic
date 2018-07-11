@@ -4,23 +4,21 @@ import Colors from '../Themes/Colors';
 
 const StyledFilter = styled.input`
   color: #000;
-  font-size: 18px;
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 16px;
   background: transparent;
-  border: none;
-  border-bottom: 1px solid ${Colors.gray_lighter};
-  width: 100%;
+  border: 1px solid ${Colors.gray_lighter};
+  width: 150px;
   margin: 0 0 5px;
+  padding: 3px 5px 3px;
 
   &:focus {
     outline: none;
   }
 `;
 
-const StyledCaption = styled.p`
-  color: ${Colors.gray};
-  font-size: 13px;
-  margin: 0 0 10px;
-`;
 
 const Filter = (props) => {
   return (
@@ -28,9 +26,9 @@ const Filter = (props) => {
       <StyledFilter
         type='text'
         value={props.filter}
+        placeholder='Filter'
         onChange={props.onChange}
       />
-      <StyledCaption>Sort</StyledCaption>
     </div>
   )
 }

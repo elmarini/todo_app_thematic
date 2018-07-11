@@ -1,22 +1,32 @@
 [
     {
       "label": "Apples",
-      "completed": false
+      "completed": false,
+      "date": 1531271103100,
+      "id": 1531271103100
     },
     {
       "label": "Spinach",
-      "completed": false
+      "completed": false,
+      "date": 1531271103199,
+      "id": 1531271103199
     },
     {
       "label": "Bananas",
-      "completed": false
+      "completed": false,
+      "date": 1531271103212,
+      "id": 1531271103212
     },
     {
       "label": "Berries",
-      "completed": false
+      "completed": false,
+      "date": 1531271103300,
+      "id": 1531271103300
     },
     {
       "label": "Kale",
-      "completed": false
+      "completed": false,
+      "date": 1531271103350,
+      "id": 1531271103350
     }
   ]

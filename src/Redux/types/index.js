@@ -3,5 +3,6 @@ export default {
   removeItem: 'REMOVE_ITEM',
   toggleItem: 'TOGGLE_ITEM',
   setFilter: 'SET_FILTER',
-  setFormValue: 'SET_FORM_VALUE'
+  setFormValue: 'SET_FORM_VALUE',
+  setSortMethod: 'SET_SORT_METHOD'
 }

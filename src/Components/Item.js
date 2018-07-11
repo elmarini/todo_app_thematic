@@ -21,9 +21,6 @@ const StyledLabel = styled.p`
   }
 `;
 
-const StyledInput = styled.input`
-`;
-
 const StyledButton = styled.button`
   background-color: transparent;
   border: none;
@@ -38,26 +35,29 @@ const StyledButton = styled.button`
   }
 `;
 
-const Item = (props) => {
-  const removeItem = () => props.removeItem(props.index)
-  const toggleItem = () => props.toggleItem(props.index)
+const Item = ({
+  label,
+  index,
+  completed,
+  removeItem,
+  toggleItem
+}) => (
+  <StyledItem>
+    <label htmlFor={`cb_${index}`}>
+      <input
+        type="checkbox"
+        defaultChecked={completed}
+        onChange={() => toggleItem(index)}
+        id={`cb_${index}`}
+      />
+      <StyledLabel>
+        {label}
+      </StyledLabel>
+    </label>
+    <StyledButton onClick={() => removeItem(index)}>
+      x
+    </StyledButton>
+  </StyledItem>
+);
 
-  return (
-    <StyledItem>
-      <label>
-        <StyledInput
-          type='checkbox'
-          defaultChecked={props.completed}
-          onChange={toggleItem}
-        />
-        <StyledLabel>{props.label}</StyledLabel>
-      </label>
-      <StyledButton
-        onClick={removeItem}
-        children='x'
-        />
-    </StyledItem>
-  )
-}
-
-export default Item
+export default Item;
