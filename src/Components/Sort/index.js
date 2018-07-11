@@ -1,4 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {
+  sort,
+  getArrow
+} from './helpers'
 import {
   Wrapper,
   Caption,
@@ -8,47 +13,42 @@ import {
 const Sort = ({
   setSort,
   options
-}) => {
-  const sort = (sortBy) => {
-    let direction = 'asc';
-    if (sortBy === options.id) {
-      direction = options.direction === 'asc' ? 'desc' : 'asc';
-    }
-    setSort(sortBy, direction);
-  };
+}) => (
+  <Wrapper>
+    <Caption>
+      Sort:
+    </Caption>
+    <Button
+      active={options.by === 'label'}
+      onClick={() => sort('label', options, setSort)}
+    >
+      Name
+      {getArrow('label', options)}
+    </Button>
+    <Button
+      active={options.by === 'date'}
+      onClick={() => sort('date', options, setSort)}
+    >
+      Date
+      {getArrow('date', options)}
+    </Button>
+  </Wrapper>
+);
 
-  const getArrow = (sortBy) => {
-    const arrowMap = {
-      asc: '\u25B2',
-      desc: '\u25BC'
-    };
-    if (options.id === sortBy) {
-      return arrowMap[options.direction];
-    }
-    return '';
-  };
+Sort.defaultProps = {
+  setSort: () => {},
+  options: {
+    by: 'date',
+    direction: 'asc'
+  }
+}
 
-  return (
-    <Wrapper>
-      <Caption>
-        Sort:
-      </Caption>
-      <Button
-        active={options.id === 'label'}
-        onClick={() => sort('label')}
-      >
-        Name
-        {getArrow('label')}
-      </Button>
-      <Button
-        active={options.id === 'date'}
-        onClick={() => sort('date')}
-      >
-        Date
-        {getArrow('date')}
-      </Button>
-    </Wrapper>
-  );
-};
+Sort.propTypes = {
+  setSort: PropTypes.func,
+  options: PropTypes.shape({
+    by: PropTypes.string,
+    direction: PropTypes.string
+  })
+}
 
 export default Sort;

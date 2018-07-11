@@ -31,4 +31,20 @@ const Item = ({
   </Wrapper>
 );
 
+Item.defaultProps = {
+  label: '',
+  index: 0,
+  completed: false,
+  removeItem: () => {},
+  toggleItem: () => {}
+}
+
+Item.propTypes = {
+  index: PropTypes.number,
+  label: PropTypes.string,
+  completed: PropTypes.bool,
+  removeItem: PropTypes.func,
+  toggleItem: PropTypes.func
+}
+
 export default Item;

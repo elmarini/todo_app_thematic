@@ -1,19 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { toJS } from '../../Components/toJS';
-import {
-  setFormValue,
-  setSortMethod,
-  addItem,
-  removeItem,
-  toggleItem,
-} from '../../Redux/actions';
+import PropTypes from 'prop-types';
 import { sortItems } from './helpers';
 import ListItem from '../../Components/ListItem';
 import List from '../../Components/List';
 import Title from '../../Components/Title';
 import Sort from '../../Components/Sort';
 import Form from '../../Components/Form';
+import enhance from './enhance'
 import {
   Wrapper,
   Content
@@ -23,7 +16,7 @@ const TodoList = ({
   items,
   toggleItem,
   removeItem,
-  form,
+  newItem,
   sort,
   addItem,
   setFormValue,
@@ -56,7 +49,7 @@ const TodoList = ({
           {listItems}
         </List>
         <Form
-          value={form}
+          value={newItem.label}
           onChange={setFormValue}
           addItem={addItem}
         />
@@ -65,24 +58,42 @@ const TodoList = ({
   );
 };
 
-const mapStateToProps = state => ({
-  sort: state.sort,
-  newItem: state.newItem,
-  items: state.items,
-});
+TodoList.defaultProps = {
+  items: [],
+  toggleItem: () => {},
+  removeItem: () => {},
+  newItem: {
+    label: ''
+  },
+  sort: {
+    by: 'date',
+    direction: 'asc'
+  },
+  addItem: () => {},
+  setFormValue: () => {},
+  setSortMethod: () => {}
+};
 
-const mapDispatchToProps = ({
-  setFormValue,
-  setSortMethod,
-  addItem,
-  removeItem,
-  toggleItem,
-});
+TodoList.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      date: PropTypes.number,
+      completed: PropTypes.bool
+    })
+  ),
+  toggleItem: PropTypes.func,
+  removeItem: PropTypes.func,
+  newItem: PropTypes.shape({
+    label: PropTypes.string
+  }),
+  sort: PropTypes.shape({
+    by: PropTypes.string,
+    direction: PropTypes.string
+  }),
+  addItem: PropTypes.func,
+  setFormValue: PropTypes.func,
+  setSortMethod: PropTypes.func
+}
 
-const mergeProps = (state, dispatch) => ({
-  ...state,
-  ...dispatch,
-  addItem: () => dispatch.addItem(state.newItem),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(toJS(TodoList));
+export default enhance(TodoList)

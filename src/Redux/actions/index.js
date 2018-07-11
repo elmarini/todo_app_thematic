@@ -1,37 +1,28 @@
-import Types from '../types/'
+// eslint-disable-next-line import/prefer-default-export
+import Types from '../types'
 
-export const setFormValue = (evt) => {
-  return ({
-    type: Types.setFormValue,
-    value: evt.target.value
-  })
-}
+export const setFormValue = evt => ({
+  type: Types.setFormValue,
+  value: evt.target.value
+})
 
-export const setSortMethod = (id, direction) => {
-  return ({
-    type: Types.setSortMethod,
-    id,
-    direction
-  })
-}
+export const setSortMethod = (by, direction) => ({
+  type: Types.setSortMethod,
+  by,
+  direction
+})
 
-export const addItem = (newItem) => {
-  return ({
-    type: Types.addItem,
-    newItem
-  })
-}
+export const addItem = newItem => ({
+  type: Types.addItem,
+  newItem
+})
 
-export const toggleItem = (index) => {
-  return ({
-    type: Types.toggleItem,
-    index
-  })
-}
+export const toggleItem = index => ({
+  type: Types.toggleItem,
+  index
+})
 
-export const removeItem = (index) => {
-  return ({
-    type: Types.removeItem,
-    index
-  })
-}
+export const removeItem = index => ({
+  type: Types.removeItem,
+  index
+})

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "immutable": "^3.8.2",
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
@@ -18,8 +19,8 @@
     "eject": "react-scripts eject"
   },
   "moduleDirectories": [
-      "node_modules",
-      "src"
+    "node_modules",
+    "src"
   ],
   "devDependencies": {
     "chalk": "^2.4.1",

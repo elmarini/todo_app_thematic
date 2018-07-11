@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Wrapper,
   Input,
@@ -23,4 +24,16 @@ const Form = ({
   </Wrapper>
 );
 
-export default Form
+Form.defaultProps = {
+  value: '',
+  onChange: () => {},
+  addItem: () => {}
+}
+
+Form.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  addItem: PropTypes.func
+}
+
+export default Form;
