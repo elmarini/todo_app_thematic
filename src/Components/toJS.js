@@ -1,3 +1,5 @@
+/* eslint-disable */
+// For more info see: https://redux.js.org/recipes/using-immutable.js-with-redux#use-a-higher-order-component-to-convert-your-smart-components-immutable-js-props-to-your-dumb-components-javascript-props
 import React from 'react'
 import { Iterable } from 'immutable'
 

@@ -1,8 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
-import Colors from '../Themes/Colors';
+import Colors from '../../Themes/Colors';
 
-const StyledForm = styled.form`
+export const Wrapper = styled.form`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -10,7 +9,7 @@ const StyledForm = styled.form`
   font-size: 24px;
 `;
 
-const StyledButton = styled.button`
+export const Button = styled.button`
   background-color: ${Colors.blue};
   border-radius: 6px;
   color: ${Colors.transparent_white};
@@ -23,7 +22,7 @@ const StyledButton = styled.button`
   }
 `;
 
-const StyledInput = styled.input`
+export const Input = styled.input`
   color: #000;
   font-size: 18px;
   background: transparent;
@@ -42,22 +41,3 @@ const StyledInput = styled.input`
     margin-bottom: 5px;
   }
 `;
-
-const Form = (props) => {
-  return (
-    <StyledForm onSubmit={(e) => e.preventDefault()}>
-      <StyledInput
-        type='text'
-        value={props.value}
-        placeholder='Add Item'
-        onChange={props.onChange}
-      />
-      <StyledButton
-        onClick={props.addItem}
-        children='Add'
-      />
-    </StyledForm>
-  )
-}
-
-export default Form

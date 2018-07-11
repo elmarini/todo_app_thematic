@@ -1,12 +1,5 @@
 import Types from '../types/'
 
-export const setFilter = (evt) => {
-  return ({
-    type: Types.setFilter,
-    value: evt.target.value
-  })
-}
-
 export const setFormValue = (evt) => {
   return ({
     type: Types.setFormValue,
