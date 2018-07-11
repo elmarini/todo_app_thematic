@@ -10,9 +10,9 @@ import {
 import { toJS } from '../../Components/toJS';
 
 const mapStateToProps = state => ({
-  sort: state.sort,
-  newItem: state.newItem,
-  items: state.items,
+  sort: state.get('sort'),
+  newItem: state.get('newItem'),
+  items: state.get('items'),
 });
 
 const mapDispatchToProps = ({
