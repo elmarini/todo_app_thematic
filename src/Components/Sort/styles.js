@@ -26,8 +26,8 @@ export const Button = styled.button`
   }
 
   ${props => props.active && `
-    color: red
-  `}
+    color: ${Colors.blue}
+  `};
 `;
 
 export const Caption = styled.p`

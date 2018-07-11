@@ -7,10 +7,11 @@ export const setFormValue = (evt) => {
   })
 }
 
-export const setSortMethod = (id) => {
+export const setSortMethod = (id, direction) => {
   return ({
     type: Types.setSortMethod,
-    id
+    id,
+    direction
   })
 }
 

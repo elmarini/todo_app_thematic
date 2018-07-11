@@ -50,7 +50,7 @@ const TodoList = ({
       <Content>
         <Sort
           setSort={setSortMethod}
-          active={sort.id}
+          options={sort}
         />
         <List>
           {listItems}
