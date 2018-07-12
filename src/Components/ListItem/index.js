@@ -7,40 +7,40 @@ import {
 } from './styles'
 
 const Item = ({
+  id,
   label,
-  index,
   completed,
   removeItem,
   toggleItem
 }) => (
   <Wrapper>
-    <label htmlFor={`cb_${index}`}>
+    <label htmlFor={`cb_${id}`}>
       <input
         type="checkbox"
         defaultChecked={completed}
-        onChange={() => toggleItem(index)}
-        id={`cb_${index}`}
+        onChange={() => toggleItem(id)}
+        id={`cb_${id}`}
       />
       <Label>
         {label}
       </Label>
     </label>
-    <Button onClick={() => removeItem(index)}>
+    <Button onClick={() => removeItem(id)}>
       x
     </Button>
   </Wrapper>
 );
 
 Item.defaultProps = {
+  id: 0,
   label: '',
-  index: 0,
   completed: false,
   removeItem: () => {},
   toggleItem: () => {}
 }
 
 Item.propTypes = {
-  index: PropTypes.number,
+  id: PropTypes.number,
   label: PropTypes.string,
   completed: PropTypes.bool,
   removeItem: PropTypes.func,

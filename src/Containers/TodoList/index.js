@@ -24,9 +24,9 @@ const TodoList = ({
 }) => {
   const sortedItems = sortItems(items, sort);
 
-  const listItems = sortedItems.map((item, index) => (
+  const listItems = sortedItems.map(item => (
     <ListItem
-      index={index}
+      id={item.id}
       key={item.id}
       label={item.label}
       completed={item.completed}

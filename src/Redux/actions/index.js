@@ -17,12 +17,12 @@ export const addItem = newItem => ({
   newItem
 })
 
-export const toggleItem = index => ({
+export const toggleItem = id => ({
   type: Types.toggleItem,
-  index
+  id
 })
 
-export const removeItem = index => ({
+export const removeItem = id => ({
   type: Types.removeItem,
-  index
+  id
 })

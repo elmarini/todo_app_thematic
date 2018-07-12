@@ -14,9 +14,12 @@ const itemsReducer = (state = initialState, action) => {
         id: Date.now()
       }))
     case Types.toggleItem:
-      return state.update(action.index, item => item.set('completed', !item.completed))
+      return state.update(
+        state.findIndex(item => item.get('id') === action.id),
+        item => item.set('completed', !item.completed)
+      );
     case Types.removeItem:
-      return state.remove(action.index)
+      return state.filter(item => item.get('id') !== action.id)
     default:
       return state;
   }
